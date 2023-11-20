@@ -4,10 +4,12 @@
 	import Header from '../components/Header.svelte';
 </script>
 
-<div class="w-screen h-screen bg-black text-white overflow-hidden flex flex-col">
+<div class="w-screen relative h-screen text-white overflow-hidden flex flex-col">
 	<Header />
 	<div class="flex-grow">
 		<Body />
 	</div>
-	<Footer />
+	<div class=" w-full bottom-0 p-10">
+		<Footer />
+	</div>
 </div>

@@ -39,15 +39,6 @@
 			{/each}
 		</div>
 	</div>
-	<div class="relative cursor-pointer">
-		<svg class="absolute -mt-2" fill="none" viewBox="0 0 86 24"
-			><path
-				d="M7.237 23.5.5 16.764V7.237L7.237.5h71.526L85.5 7.237v9.527L78.763 23.5H7.237Z"
-				stroke="#484B45"
-			/></svg
-		>
-		<a href="/" class="font-mono text-sm px-4">Explore Timeline</a>
-	</div>
 </div>
 
 <style>

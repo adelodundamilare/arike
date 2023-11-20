@@ -42,12 +42,17 @@
 	font-family: 'Regular';
 }
 
-::root {
-	--background-color: #111;
+:root {
+	/* --background-color: #fcc2cb; */
+	--background-color: black;
+	/* --background-color: black; */
+	--bg-col-1: rgb(173, 92, 72);
+	--bg-col-2: rgb(173, 92, 72);
 }
 
 body {
-	background: var(--background-color);
+	/* background: var(--background-color); */
+	background: var(--bg-col-1);
 	font-size: 18px;
 	cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABvSURBVHgBjdC7DcAgDARQTMUIlIzACB6dETwCJSOkI3eK00XBlk6AeOJjSV5774ZBkYoUZCImIsZ9caSOvmoAjwzUfxBLeVvGpKdzKWELwEp4BWAhXAE4CUcAWsbX5wGzPSbvytvEtPS8ezniQekGn8QhEkDKxqwAAAAASUVORK5CYII=),
 		auto;
@@ -57,7 +62,7 @@ h1,
 h2,
 h3,
 .bold-font {
-	font-family: 'Bold';
+	font-family: 'Condensed';
 	font-weight: normal;
 }
 
@@ -78,16 +83,26 @@ h3,
 }
 
 .x-blurred-bg {
-	/* background-color: rgb(255 255 255 / 3.33%); */
 	backdrop-filter: blur(calc(25 * 1px));
 }
 
 p {
-	font-size: 1.3em;
+	font-size: 1.2em;
 	line-height: 1.5;
-	/* margin-bottom: 1em; */
 }
 
 p + p {
 	margin-top: 1em;
+}
+
+body::before {
+	width: 22px;
+	height: 200px;
+	border-radius: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	display: none;
+	background-color: rgb(255,255,255,.4);
 }
