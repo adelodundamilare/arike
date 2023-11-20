@@ -3,19 +3,14 @@
 	//
 	import Helpers from '../utils/helpers';
 	import '../app.css';
-	import { layoutOverlayBgClicked, showLayoutOverlay } from '../store';
+	import { isLoadingPreloader } from '../store';
+	import Preloader from '../components/Preloader.svelte';
 	//
 	let cursor: HTMLElement;
-	let overlayBg: HTMLElement;
 
 	const handleMouseMove = (e: MouseEvent) => {
 		const { x, y } = Helpers.getMousePosition(e);
-		// animateLoveButton(x, y);
-		// moveCursor(x, y);
-	};
-
-	const hideOverlay = () => {
-		overlayBg.classList.add('x-overlay-bg-distort');
+		moveCursor(x, y);
 	};
 
 	const moveCursor = (x: number, y: number) => {
@@ -26,18 +21,24 @@
 	};
 </script>
 
-<main on:mousemove={handleMouseMove} id="main" class="relative overflow-hidden">
-	<slot />
-	<!-- cursor -->
-	<div bind:this={cursor} class="relative x-cursor-pointer">
-		<svg class="absolute" fill="none" viewBox="0 0 86 24"
-			><path
-				d="M7.237 23.5.5 16.764V7.237L7.237.5h71.526L85.5 7.237v9.527L78.763 23.5H7.237Z"
-				stroke="#484B45"
-			/></svg
-		>
-	</div>
-</main>
+<div id="app">
+	{#if $isLoadingPreloader === true}
+		<Preloader />
+	{:else}
+		<main on:mousemove={handleMouseMove} id="main" class="relative overflow-hidden">
+			<slot />
+			<!-- cursor -->
+			<div bind:this={cursor} class="relative x-cursor-pointer">
+				<svg class="absolute" fill="none" viewBox="0 0 86 24"
+					><path
+						d="M7.237 23.5.5 16.764V7.237L7.237.5h71.526L85.5 7.237v9.527L78.763 23.5H7.237Z"
+						stroke="#484B45"
+					/></svg
+				>
+			</div>
+		</main>
+	{/if}
+</div>
 
 <style>
 	.x-cursor-pointer {

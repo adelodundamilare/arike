@@ -1,6 +1,5 @@
 <script lang="ts">
 	import gsap from 'gsap';
-	import WhatButton from './WhatButton.svelte';
 	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher();

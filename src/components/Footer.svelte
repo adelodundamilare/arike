@@ -1,28 +1,26 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import gsap from 'gsap';
 	//
 	import Love from './Love.svelte';
 	import What from './What.svelte';
 
+	let whatBox: HTMLElement;
+
 	onMount(() => {
-		// if (mouseDistance < 60) {
-		// 	gsap.to('#love-this', {
-		// 		// xPercent: 100
-		// 		backgroundColor: 'rgb(255 255 255 / 0.2)'
-		// 	});
-		// }
+		gsap.to(whatBox, {
+			y: 0
+		});
 	});
 
 	const year = new Date().toLocaleDateString([], { dateStyle: 'short' });
 </script>
 
 <div class="text-sm flex justify-between items-end">
-	<div>
-		<What />
-	</div>
-	<div class="flex items-center">
-		<div class="font-works">Built with ❤️ for her 😘</div>
-		<p class="font-cond uppercase">&copy DAMI::{year}</p>
+	<div class="overflow-hidden">
+		<div bind:this={whatBox} class="translate-y-10">
+			<What />
+		</div>
 	</div>
 	<div>
 		<Love />
