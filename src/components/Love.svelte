@@ -27,6 +27,10 @@
 			opacity: 1
 		});
 
+		gsap.to(paragraphParent, {
+			scale: 1
+		});
+
 		// show the background...
 		gsap.to(modalOverlayBg, {
 			x: 0,
@@ -62,12 +66,20 @@
 			display: 'none',
 			opacity: 0
 		});
+
+		gsap.to(paragraphParent, {
+			scale: 0,
+			delay: 1
+		});
 	};
 </script>
 
 <div class="x-blurred-bg z-10">
-	<div class="-right-5 -bottom-5 absolute z-20 w-[400px] rounded-lg overflow-hidden">
-		<div bind:this={paragraphParent} class="relative w-full p-10">
+	<div
+		bind:this={paragraphParent}
+		class=" scale-0 origin-bottom-right -right-5 -bottom-5 absolute z-20 w-[400px] rounded-lg overflow-hidden"
+	>
+		<div class="relative w-full p-10">
 			<!-- paragraphs -->
 			{#each paragraphs as p, index}
 				<div class="overflow-hidden mb-5">
