@@ -47,12 +47,17 @@
 		font-size: 10vw;
 		text-transform: uppercase;
 		font-family: 'Condensed';
-		/* font-family: 'Mono'; */
 		line-height: normal;
 		letter-spacing: -8px;
 		cursor: pointer;
 		color: #cccfca;
 		text-shadow: 0 0 8px #cccfcabf;
+	}
+
+	@media (max-width: 508px) {
+		.main-text {
+			font-size: 25vw;
+		}
 	}
 
 	div[id^='letter-'] {

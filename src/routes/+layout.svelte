@@ -49,7 +49,8 @@
 		overflow: hidden;
 		z-index: 0;
 		position: absolute;
-		background: rgba(255, 255, 255, 0.15);
+		/* background: rgba(255, 255, 255, 0.15); */
+		border: 1px solid rgba(255, 255, 255, 0.5);
 		left: 0;
 		top: 0;
 	}

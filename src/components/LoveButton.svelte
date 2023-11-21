@@ -69,7 +69,7 @@
 	type="button"
 	class="bg-white z-50 relative overflow-hidden bg-opacity-20 px-4 py-2 rounded-lg"
 >
-	<p class="z-20 relative">❤️ Love this?</p>
+	<p class="z-20 relative text-lg">❤️ Love this?</p>
 	<div
 		bind:this={overlay}
 		class="absolute z-10 left-0 bottom-0 translate-y-[100%] w-full h-full bg-white bg-opacity-30"

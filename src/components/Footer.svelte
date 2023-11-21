@@ -12,17 +12,15 @@
 			y: 0
 		});
 	});
-
-	const year = new Date().toLocaleDateString([], { dateStyle: 'short' });
 </script>
 
-<div class="text-sm flex justify-between items-end">
+<div class="text-sm flex sm:flex-col-reverse justify-between items-end">
 	<div class="overflow-hidden">
 		<div bind:this={whatBox} class="translate-y-10">
 			<What />
 		</div>
 	</div>
-	<div>
+	<div class="sm:mb-5">
 		<Love />
 	</div>
 </div>
