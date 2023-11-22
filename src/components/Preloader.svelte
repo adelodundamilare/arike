@@ -10,8 +10,6 @@
 	let bottomBg: HTMLElement;
 	let mainLine: HTMLElement;
 
-	const tl = gsap.timeline({});
-
 	onMount(() => {
 		gsap.to(smallBox, {
 			rotateZ: 360,

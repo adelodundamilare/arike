@@ -5,14 +5,14 @@ const config = {
 	plugins: [sveltekit()],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
-	},
-	build: {
-		rollupOptions: {
-			external: [
-				'gsap' // ignore gsap
-			]
-		}
 	}
+	// build: {
+	// 	rollupOptions: {
+	// 		external: [
+	// 			'gsap' // ignore gsap
+	// 		]
+	// 	}
+	// }
 };
 
 export default config;
