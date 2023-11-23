@@ -1,5 +1,12 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import dictionary from '../utils/dictionary';
+	import gsap from 'gsap';
+
+	//
+	let letter: string = 'arike';
+	let mainText: HTMLDivElement;
+
 	//
 	const getRandomSymbol = (item: string[]): string => {
 		// please note the "-1"
@@ -18,25 +25,64 @@
 		const arrLetters = [...letter];
 		return arrLetters.map((item) => findInDictionary(item));
 	};
-	//
-	let letter: string = 'arike';
+
 	const letterArr = [...letter.toUpperCase()];
-	const hoverEffect = getLetterSymbols();
+	let hoverEffect = getLetterSymbols();
+
+	gsap.delayedCall(1, () => {});
+
+	const tl = gsap.timeline({ repeat: -1, repeatDelay: 2 });
+
+	onMount(() => {
+		tl.from(mainText, {
+			scale: 0.9,
+			onComplete: () => {
+				hoverEffect = getLetterSymbols();
+			}
+			// duration: 0.5
+		});
+		tl.to(mainText, {
+			scale: 1,
+			ease: 'elastic.out(1,0.3)',
+			duration: 1
+			// onComplete: () => {
+			// 	hoverEffect = getLetterSymbols();
+			// }
+			// duration: 0.5
+		});
+	});
+
+	// setInterval(() => {
+	// 	hoverEffect = getLetterSymbols();
+
+	// 	gsap.to(mainText, {
+	// 		y: 1000,
+	// 		// scale: 1.1,
+	// 		delay: 1
+	// 		// duration: 0.5
+	// 	});
+	// }, 1000);
+
+	const handleMouseOver = () => {
+		tl.pause();
+	};
+
+	const handleMouseLeave = () => {
+		tl.play();
+	};
 </script>
 
 <div class="flex h-full items-center flex-col justify-center">
 	<div class="">
-		<div class="flex overflow-hidden relative">
-			{#each letterArr as item, index}
-				<div id={`letter-${index}`} class="relative text-center">
-					<div class="main-text">{item}</div>
-					<div class="absolute">
-						<!-- <div class="text-2xl text-center">❤️</div> -->
-						<!-- <div class="main-text">☻</div> -->
-						<div class="main-text">{hoverEffect[index]}</div>
-					</div>
-				</div>
-			{/each}
+		<div class="flex relative">
+			<div
+				on:mouseenter={handleMouseOver}
+				on:mouseleave={handleMouseLeave}
+				bind:this={mainText}
+				class="main-text scale-75"
+			>
+				{hoverEffect.join('')}
+			</div>
 		</div>
 	</div>
 </div>
